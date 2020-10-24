@@ -6,7 +6,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-
+/* global $ */
 
 /// This function would create an accordion based on the markup and provided options
 // params:
@@ -67,6 +67,13 @@ var A11yAccordion = function () {
         showHeaderLabelClass: 'a11yAccordionItemHeaderLinkShowLabel',
         hideHeaderLabelClass: 'a11yAccordionItemHeaderLinkHideLabel',
         markedTextClass: 'a11yAccordion-markedText',
+        visibleAreaClass: 'visiblea11yAccordionItem',
+        noResultsDivClass: 'a11yAccordionNoResultsItem',
+        searchDivClass: 'a11yAccordionSearchDiv',
+        headerLinkClass: 'a11yAccordionItemHeaderLink',
+        headerTextClass: 'a11yAccordionItemHeaderText',
+        hiddenHeaderLabelDescriptionClass: 'a11yAccordionItemHeaderLinkHiddenLabel',
+        toggleClass: 'toggle',
         triangleClass: 'a11yAccordion-triangle',
         searchClass: 'a11yAccordionSearch',
         accordionHeaderClass: 'a11yAccordion-header',
@@ -77,6 +84,7 @@ var A11yAccordion = function () {
         hideHeaderLabelText: 'Hide',
         searchPlaceholder: 'Search',
         noResultsText: 'No Results Found',
+        titleText: 'Type your query to search',
         resultsMessage: 'Number of results found: ',
         leaveBlankMessage: ' Please leave blank to see all the results.'
       },
@@ -133,9 +141,27 @@ var A11yAccordion = function () {
       _collapse(_getHiddenArea(rowIndex));
     }
 
+    /// Function which will show hidden area in the row with index = rowIndex
+    // params:
+    //  rowIndex - integer index of the row
+    //
+
+  }, {
+    key: 'uncollapseRow',
+    value: function uncollapseRow(rowIndex) {
+      var _uncollapse = this._uncollapse;
+      var _getHiddenArea = this._getHiddenArea;
 
 
-  },  {
+      _uncollapse(_getHiddenArea(rowIndex));
+    }
+
+    /// Function which will hide or show hidden area in the row with index = rowIndex depending on its previous state
+    // params:
+    //  rowIndex - integer index of the row
+    //
+
+  }, {
     key: 'toggleRow',
     value: function toggleRow(rowIndex) {
       var _collapseWork = this._collapseWork;
